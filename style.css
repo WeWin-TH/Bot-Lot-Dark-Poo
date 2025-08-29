@@ -83,7 +83,7 @@ input:focus, select:focus {
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.08);
-  color: var(--text);
+  color: #000; /* ปกติเป็นสีดำ */
   cursor: pointer;
   transition: 0.3s;
 }
@@ -92,10 +92,11 @@ input:focus, select:focus {
 }
 .chip:hover {
   background: var(--accent);
+  color: #fff; /* hover เป็นสีขาว */
 }
 .chip input:checked + span {
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  color: #fff;
+  color: #000; /* เลือกแล้วก็เป็นสีดำ */
   padding: 8px 14px;
   border-radius: 20px;
 }
