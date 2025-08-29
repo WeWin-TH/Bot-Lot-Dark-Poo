@@ -1,0 +1,159 @@
+:root {
+  --bg-overlay: rgba(0, 0, 0, 0.6);
+  --card-bg: rgba(255, 255, 255, 0.12);
+  --text: #fff;
+  --muted: #aaa;
+  --accent: #6c63ff;
+  --accent-2: #ff6584;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: url("https://fintechnews.sg/wp-content/uploads/2022/02/DBS-Pledges-Additional-SGD-100-Million-to-Fund-Social-Enterprises.png") no-repeat center center/cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--bg-overlay);
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 32px;
+  max-width: 520px;
+  width: 100%;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(14px);
+  animation: fadeInUp 0.8s ease;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 16px;
+  color: var(--text);
+  font-size: 28px;
+}
+
+label {
+  display: block;
+  margin: 10px 0 6px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+input[type=text], input[type=number], select, input[type=file] {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  outline: none;
+  transition: 0.3s;
+}
+input:focus, select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 12px rgba(108, 99, 255, 0.6);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.chip {
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.chip input {
+  display: none;
+}
+.chip:hover {
+  background: var(--accent);
+}
+.chip input:checked + span {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 20px;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 8px;
+  background: linear-gradient(270deg, var(--accent), var(--accent-2));
+  background-size: 300% 300%;
+  color: #fff;
+  animation: gradientMove 5s infinite linear;
+  transition: transform 0.2s;
+}
+button:hover {
+  transform: scale(1.05);
+}
+button.ghost {
+  background: rgba(255,255,255,0.1);
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+#photoPreviewContainer img {
+  max-width: 160px;
+  border-radius: 12px;
+  margin-top: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+#status {
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 14px;
+  font-weight: 600;
+  text-align: center;
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+#status.success { background: rgba(76, 175, 80, 0.2); color: #8aff8a; }
+#status.error { background: rgba(244, 67, 54, 0.2); color: #ff8a8a; }
+#status.reset { background: rgba(33,150,243,0.2); color: #82cfff; }
+
+@keyframes fadeInUp {
+  from {opacity:0; transform: translateY(40px);}
+  to {opacity:1; transform: translateY(0);}
+}
+@keyframes fadeIn {
+  from {opacity:0;}
+  to {opacity:1;}
+}
+@keyframes gradientMove {
+  0% {background-position:0% 50%;}
+  50% {background-position:100% 50%;}
+  100% {background-position:0% 50%;}
+}

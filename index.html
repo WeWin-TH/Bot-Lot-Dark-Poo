@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Big Lot Dark Pool</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="card">
+    <h1>Big Lot Dark Pool</h1>
+    <form id="regForm" enctype="multipart/form-data">
+      <input type="text" name="hp_field" style="display:none" autocomplete="off">
+
+      <label>ชื่อ-นามสกุล *</label>
+      <input type="text" name="fullName" required placeholder="กรอกชื่อ-นามสกุล">
+
+      <label>Line name *</label>
+      <input type="text" name="lineName" required placeholder="ชื่อใน Line">
+
+      <label>จำนวนเงินทุน (บาท) *</label>
+      <input type="number" name="capital" required min="0" step="1000" placeholder="เช่น 50000">
+
+      <label>กลุ่มหุ้นที่สนใจ</label>
+      <div class="chips">
+        <label class="chip"><input type="checkbox" name="sectors" value="พลังงาน"><span>พลังงาน</span></label>
+        <label class="chip"><input type="checkbox" name="sectors" value="ธนาคาร/การเงิน"><span>ธนาคาร/การเงิน</span></label>
+        <label class="chip"><input type="checkbox" name="sectors" value="เทคโนโลยี"><span>เทคโนโลยี</span></label>
+        <label class="chip"><input type="checkbox" name="sectors" value="อสังหา"><span>อสังหา</span></label>
+        <label class="chip"><input type="checkbox" name="sectors" value="สุขภาพ"><span>สุขภาพ</span></label>
+        <label class="chip"><input type="checkbox" name="sectors" value="ท่องเที่ยว/โรงแรม"><span>ท่องเที่ยว/โรงแรม</span></label>
+      </div>
+
+      <label>สไตล์การเทรด *</label>
+      <select name="tradingStyle" required>
+        <option value="">— เลือก —</option>
+        <option>Day Trade</option>
+        <option>Swing Trade</option>
+        <option>Position</option>
+        <option>DCA/Long-term</option>
+        <option>Algo/Quant</option>
+      </select>
+
+      <label>รูป QR code (ไม่บังคับ)</label>
+      <input type="file" name="photo" id="photo" accept="image/*">
+      <div id="photoPreviewContainer"></div>
+
+      <button type="submit">🚀 ส่งข้อมูล</button>
+      <button type="reset" class="ghost">ล้างข้อมูล</button>
+    </form>
+
+    <div id="status"></div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    // Reset message
+    const form = document.getElementById("regForm");
+    const statusBox = document.getElementById("status");
+    form.addEventListener("reset", () => {
+      setTimeout(() => {
+        statusBox.className = "reset";
+        statusBox.style.display = "block";
+        statusBox.textContent = "พร้อมเริ่มกรอกใหม่ 🚀";
+        setTimeout(() => statusBox.style.display = "none", 2000);
+      }, 200);
+    });
+  </script>
+</body>
+</html>
