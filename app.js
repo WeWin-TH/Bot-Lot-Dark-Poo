@@ -8,7 +8,7 @@ form.addEventListener('submit', async (e) => {
   const fd = new FormData(form);
   
   try {
-    const resp = await fetch('https://wewin-backend.onrender.com/api/register', {
+    const resp = await fetch('https://wewin-backend.onrender.com', {
       method: 'POST',
       body: fd
     });
@@ -28,3 +28,4 @@ form.addEventListener('submit', async (e) => {
     statusBox.textContent = 'ไม่สามารถเชื่อมต่อ Server ได้';
   }
 }, false);
+
