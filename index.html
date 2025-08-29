@@ -53,19 +53,5 @@
   </div>
 
   <script src="app.js"></script>
-  <script>
-    // Reset message
-    const form = document.getElementById("regForm");
-    const statusBox = document.getElementById("status");
-    form.addEventListener("reset", () => {
-      setTimeout(() => {
-        statusBox.className = "reset";
-        statusBox.style.display = "block";
-        statusBox.textContent = "พร้อมเริ่มกรอกใหม่";
-        setTimeout(() => statusBox.style.display = "none", 2000);
-      }, 200);
-    });
-  </script>
 </body>
 </html>
-
